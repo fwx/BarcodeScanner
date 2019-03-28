@@ -94,8 +94,6 @@ open class BarcodeScannerViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black
         
-        add(childViewController: messageViewController)
-        messageView.translatesAutoresizingMaskIntoConstraints = false
         collapsedConstraints.activate()
         
         cameraViewController.metadata = metadata
@@ -136,7 +134,6 @@ open class BarcodeScannerViewController: UIViewController {
     
     private func changeStatus(from oldValue: Status, to newValue: Status) {
         guard newValue.state != .notFound else {
-            messageViewController.status = newValue
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
                 self.status = Status(state: .scanning)
             }
@@ -161,23 +158,7 @@ open class BarcodeScannerViewController: UIViewController {
             expandedConstraints.activate()
         }
         
-        messageViewController.status = newValue
         
-        UIView.animate(
-            withDuration: duration,
-            animations: ({
-                self.view.layoutIfNeeded()
-            }),
-            completion: ({ [weak self] _ in
-                if delayReset {
-                    self?.resetState()
-                }
-                
-                self?.messageView.layer.removeAllAnimations()
-                if self?.status.state == .processing {
-                    self?.messageViewController.animateLoading()
-                }
-            }))
     }
     
     /// Resets the current state.
