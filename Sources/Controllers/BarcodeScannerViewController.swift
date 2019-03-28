@@ -78,7 +78,7 @@ open class BarcodeScannerViewController: UIViewController {
     private lazy var expandedConstraints: [NSLayoutConstraint] = self.makeExpandedConstraints()
     
     private var messageView: UIView {
-        return messageViewController.view
+        return UIView()
     }
     
     /// The current controller's status mode.
