@@ -248,14 +248,7 @@ private extension BarcodeScannerViewController {
     }
     
     private func makeCollapsedConstraints() -> [NSLayoutConstraint] {
-        return [
-            messageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            messageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            messageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            messageView.heightAnchor.constraint(
-                equalToConstant: BarcodeScannerViewController.footerHeight
-            )
-        ]
+        return []
     }
 }
 
