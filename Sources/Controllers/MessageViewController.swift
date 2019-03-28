@@ -125,10 +125,7 @@ public final class MessageViewController: UIViewController {
     if status.state == .scanning || status.state == .unauthorized {
       expandedConstraints.deactivate()
       collapsedConstraints.activate()
-    } else {
-      collapsedConstraints.deactivate()
-      expandedConstraints.activate()
-    }
+    } 
   }
 }
 
