@@ -67,6 +67,8 @@ open class BarcodeScannerViewController: UIViewController {
     
     // Title label and close button.
     public private(set) lazy var headerViewController: HeaderViewController = .init()
+    /// Information view with description label.
+    public private(set) lazy var messageViewController: MessageViewController = .init()
     /// Camera view with custom buttons.
     public private(set) lazy var cameraViewController: CameraViewController = .init()
     
@@ -237,7 +239,7 @@ private extension BarcodeScannerViewController {
     }
     
     private func makeExpandedConstraints() -> [NSLayoutConstraint] {
-        return [
+        return []
     }
     
     private func makeCollapsedConstraints() -> [NSLayoutConstraint] {
